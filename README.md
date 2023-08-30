@@ -3,7 +3,7 @@
 > Simple RNG and words randomizer written in Vue.js v2 with Vuetify UI.
 
 ## Demo
-[riwert.github.io/vue-randomizer](https://riwert.github.io/vue-randomizer)
+[riwert.github.io/v-randomizer](https://riwert.github.io/v-randomizer)
 
 ## Screenshot on desktop
 ![V Randomizer desktop screenshot](screenshot-desktop.jpg)

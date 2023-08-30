@@ -8,12 +8,12 @@
   >
     <AppBar @toggleDrawer="drawer = !drawer">Rndr</AppBar>
 
-    <v-btn class="nav-logo" link href="https://riwert.github.io/vue-randomizer">
+    <v-btn class="nav-logo" link href="https://riwert.github.io/v-randomizer">
       <v-img :src="logo" alt="Vuetify Logo" aspect-ratio="1"></v-img>
     </v-btn>
 
     <v-list dense>
-      <v-list-item link href="https://riwert.github.io/vue-randomizer">
+      <v-list-item link href="https://riwert.github.io/v-randomizer">
         <v-list-item-action>
           <v-icon>mdi-home</v-icon>
         </v-list-item-action>
@@ -29,7 +29,7 @@
           <v-list-item-title>Contact</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item link href="https://github.com/riwert/vue-randomizer" target="_blank" rel="noopener">
+      <v-list-item link href="https://github.com/riwert/v-randomizer" target="_blank" rel="noopener">
         <v-list-item-action>
           <v-icon>mdi-github</v-icon>
         </v-list-item-action>
