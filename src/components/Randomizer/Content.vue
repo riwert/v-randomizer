@@ -17,8 +17,8 @@
               offset-y
             >
               <template v-slot:activator="{ on }">
-                <v-btn md-large color="success" class="btn-load same-width ma-1 mx-md-3" v-on="on">
-                  <v-icon left>mdi-folder-download</v-icon>
+                <v-btn v-bind="btnSize" color="success" class="btn-load same-width ma-1 mx-md-3" v-on="on">
+                  <v-icon v-bind="iconSize" left>mdi-folder-download</v-icon>
                   Load example
                   <v-icon right class="pointer-down" :class="{'flip': example}">mdi-chevron-down</v-icon>
                 </v-btn>
@@ -34,8 +34,8 @@
               </v-list>
             </v-menu>
 
-            <v-btn md-large color="warning" class="same-width ma-1 mx-md-3" @click="clearInput">
-              <v-icon left>mdi-file-remove</v-icon>
+            <v-btn v-bind="btnSize" color="warning" class="same-width ma-1 mx-md-3" @click="clearInput">
+              <v-icon v-bind="iconSize" left>mdi-file-remove</v-icon>
               Clear input
             </v-btn>
           </div>
@@ -53,17 +53,17 @@
           <div class="d-flex justify-center align-center mb-3 mb-md-6">
             <v-text-field
               solo
-              large
               hide-details="auto"
               type="number"
               label="Amount"
               v-model="randomAmount"
               required
+              v-bind="fieldDense"
               class="d-inline-block same-width ma-1 mx-md-3"
             ></v-text-field>
 
-            <v-btn x-large color="primary" class="same-width ma-1 mx-md-3" @click="onSubmit">
-              <v-icon left>mdi-shuffle-variant</v-icon>
+            <v-btn v-bind="btnSize" color="primary" class="same-width ma-1 mx-md-3" @click="onSubmit">
+              <v-icon v-bind="iconSize" left>mdi-shuffle-variant</v-icon>
               Randomize!
             </v-btn>
           </div>
@@ -78,12 +78,12 @@
           ></v-textarea>
 
           <div class="mb-3 mb-md-6">
-            <v-btn md-large color="success" class="same-width ma-1 mx-md-3" @click="saveOutput">
-              <v-icon left>mdi-file-download</v-icon>
+            <v-btn v-bind="btnSize" color="success" class="same-width ma-1 mx-md-3" @click="saveOutput">
+              <v-icon v-bind="iconSize" left>mdi-file-download</v-icon>
               Save result
             </v-btn>
-            <v-btn md-large color="warning" class="same-width ma-1 mx-md-3" @click="clearOutput">
-              <v-icon left>mdi-file-remove</v-icon>
+            <v-btn v-bind="btnSize" color="warning" class="same-width ma-1 mx-md-3" @click="clearOutput">
+              <v-icon v-bind="iconSize" left>mdi-file-remove</v-icon>
               Clear result
             </v-btn>
           </div>
@@ -147,6 +147,20 @@ export default {
     randomResult: function () {
       this.saveToStorage('randomResult');
     }
+  },
+  computed: {
+    btnSize () {
+      const size = { xs:'small', sm:'small', md:'normal', lg:'normal', xl:'large' }[this.$vuetify.breakpoint.name];
+      return size ? { [size]: true } : {}
+    },
+    iconSize () {
+      const size = { xs:'small', sm:'small', md:'normal', lg:'normal', xl:'normal' }[this.$vuetify.breakpoint.name];
+      return size ? { [size]: true } : {}
+    },
+    fieldDense () {
+      const dense = { xs:'dense', sm:'dense', md:'dense', lg:'dense' }[this.$vuetify.breakpoint.name];
+      return dense ? { [dense]: true } : {}
+    },
   },
   methods: {
     countWords: function(text) {
@@ -267,7 +281,7 @@ export default {
   width: 100%;
   max-width: 11rem;
 
-  @media (min-width: 576px) {
+  @media (min-width: 960px) {
     max-width: 13rem;
   }
 }
