@@ -5,7 +5,7 @@
 
     <Navigation :drawer="drawer" @updateDrawer="d => drawer = d"/>
 
-    <AppBar @toggleDrawer="drawer = !drawer"/>
+    <AppBar @toggleDrawer="drawer = !drawer">Randomizer</AppBar>
 
     <Content @alert="showAlert"/>
 
@@ -60,6 +60,9 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  background-color: #fafafa;
+}
 h1 {
   line-height: 1.1;
 }

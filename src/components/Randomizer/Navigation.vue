@@ -6,7 +6,11 @@
     dark
     :src="background"
   >
-    <v-img :src="logo" alt="Vuetify Logo" aspect-ratio="1" max-width="50%" class="mx-auto mt-2"></v-img>
+    <AppBar @toggleDrawer="drawer = !drawer">Rndr</AppBar>
+
+    <v-btn class="nav-logo" link href="https://riwert.github.io/vue-randomizer">
+      <v-img :src="logo" alt="Vuetify Logo" aspect-ratio="1"></v-img>
+    </v-btn>
 
     <v-list dense>
       <v-list-item link href="https://riwert.github.io/vue-randomizer">
@@ -38,6 +42,7 @@
 </template>
 
 <script>
+import AppBar from '@/components/Randomizer/AppBar'
 import logo from '@/assets/vuetify-logo.png'
 import background from '@/assets/v-bg.webp'
 
@@ -46,6 +51,10 @@ export default {
 
   props: {
     drawer: Boolean
+  },
+
+  components: {
+    AppBar,
   },
 
   data: () => ({
@@ -64,3 +73,17 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.nav-logo {
+  display: block;
+  max-width: 50%;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 !important;
+  height: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+</style>
