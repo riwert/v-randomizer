@@ -9,7 +9,7 @@
       <v-btn class="ma-2" color="white" x-large icon link href="https://riwert.github.io/vue-randomizer">
         <v-icon>mdi-vuetify</v-icon>
       </v-btn>
-      Randomizer
+      <slot />
     </v-toolbar-title>
   </v-app-bar>
 </template>

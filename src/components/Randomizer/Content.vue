@@ -9,7 +9,7 @@
 
           <h1>Randomize your input separated by spaces</h1>
 
-          <div class="my-4">
+          <div class="my-6">
             <v-menu
               v-model="example"
               close-on-click
@@ -17,7 +17,7 @@
               offset-y
             >
               <template v-slot:activator="{ on }">
-                <v-btn color="success" class="btn-load ma-1" v-on="on">
+                <v-btn large color="success" class="btn-load same-width mx-3 my-1" v-on="on">
                   <v-icon left>mdi-folder-download</v-icon>
                   Load example
                   <v-icon right class="pointer-down" :class="{'flip': example}">mdi-chevron-down</v-icon>
@@ -34,7 +34,7 @@
               </v-list>
             </v-menu>
 
-            <v-btn color="warning" class="ma-1" @click="clearInput">
+            <v-btn large color="warning" class="same-width mx-3 my-1" @click="clearInput">
               <v-icon left>mdi-file-remove</v-icon>
               Clear input
             </v-btn>
@@ -42,44 +42,47 @@
 
           <v-textarea
             counter
-            outlined
+            solo
             name="input"
             label="Input"
             required
             v-model="randomInput"
+            :hint="'Input words count: '+countWords(randomInput)"
           ></v-textarea>
 
-          <v-row align="center" class="mb-4">
-            <v-col class="text-center pa-0" cols="3" md="2" lg="1" offset="3" offset-md="4" offset-lg="5">
-              <v-text-field
-                type="number"
-                label="Amount"
-                required
-                v-model="randomAmount"
-              ></v-text-field>
-            </v-col>
-            <v-col class="text-left" cols="6">
-              <v-btn color="primary" @click="onSubmit">
-                <v-icon left>mdi-shuffle-variant</v-icon>
-                Randomize
-              </v-btn>
-            </v-col>
-          </v-row>
+          <div class="d-flex justify-center align-center mb-6">
+            <v-text-field
+              solo
+              large
+              hide-details="auto"
+              type="number"
+              label="Amount"
+              v-model="randomAmount"
+              required
+              class="d-inline-block same-width mx-3 my-1"
+            ></v-text-field>
+
+            <v-btn x-large color="primary" class="same-width mx-3 my-1" @click="onSubmit">
+              <v-icon left>mdi-shuffle-variant</v-icon>
+              Randomize
+            </v-btn>
+          </div>
 
           <v-textarea
             counter
-            outlined
+            solo
             name="result"
             label="Result"
             v-model="randomResult"
+            :hint="'Result words count: '+countWords(randomResult)"
           ></v-textarea>
 
-          <div class="my-0">
-            <v-btn color="success" class="ma-1" @click="saveOutput">
+          <div class="mb-6">
+            <v-btn large color="success" class="same-width mx-3 my-1" @click="saveOutput">
               <v-icon left>mdi-file-download</v-icon>
               Save result
             </v-btn>
-            <v-btn color="warning" class="ma-1" @click="clearOutput">
+            <v-btn large color="warning" class="same-width mx-3 my-1" @click="clearOutput">
               <v-icon left>mdi-file-remove</v-icon>
               Clear result
             </v-btn>
@@ -146,6 +149,10 @@ export default {
     }
   },
   methods: {
+    countWords: function(text) {
+      if (!text) return 0;
+      return text.trim().split(/\s+/).filter(word => word !== '').length;
+    },
     loadExample: function(type) {
       if (this.examples[type]) {
         if (this.examples[type].input) {
@@ -255,6 +262,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.same-width {
+  width: 100%;
+  max-width: 13rem;
+}
 .pointer-down {
   transition: 0.3s;
   transform: rotate(0deg);
