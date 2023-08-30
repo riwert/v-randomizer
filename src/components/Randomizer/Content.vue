@@ -9,7 +9,7 @@
 
           <h1>Randomize your input separated by spaces</h1>
 
-          <div class="my-6">
+          <div class="my-3 my-md-6">
             <v-menu
               v-model="example"
               close-on-click
@@ -17,7 +17,7 @@
               offset-y
             >
               <template v-slot:activator="{ on }">
-                <v-btn large color="success" class="btn-load same-width mx-3 my-1" v-on="on">
+                <v-btn md-large color="success" class="btn-load same-width ma-1 mx-md-3" v-on="on">
                   <v-icon left>mdi-folder-download</v-icon>
                   Load example
                   <v-icon right class="pointer-down" :class="{'flip': example}">mdi-chevron-down</v-icon>
@@ -34,7 +34,7 @@
               </v-list>
             </v-menu>
 
-            <v-btn large color="warning" class="same-width mx-3 my-1" @click="clearInput">
+            <v-btn md-large color="warning" class="same-width ma-1 mx-md-3" @click="clearInput">
               <v-icon left>mdi-file-remove</v-icon>
               Clear input
             </v-btn>
@@ -50,7 +50,7 @@
             :hint="'Input words count: '+countWords(randomInput)"
           ></v-textarea>
 
-          <div class="d-flex justify-center align-center mb-6">
+          <div class="d-flex justify-center align-center mb-3 mb-md-6">
             <v-text-field
               solo
               large
@@ -59,10 +59,10 @@
               label="Amount"
               v-model="randomAmount"
               required
-              class="d-inline-block same-width mx-3 my-1"
+              class="d-inline-block same-width ma-1 mx-md-3"
             ></v-text-field>
 
-            <v-btn x-large color="primary" class="same-width mx-3 my-1" @click="onSubmit">
+            <v-btn x-large color="primary" class="same-width ma-1 mx-md-3" @click="onSubmit">
               <v-icon left>mdi-shuffle-variant</v-icon>
               Randomize
             </v-btn>
@@ -77,12 +77,12 @@
             :hint="'Result words count: '+countWords(randomResult)"
           ></v-textarea>
 
-          <div class="mb-6">
-            <v-btn large color="success" class="same-width mx-3 my-1" @click="saveOutput">
+          <div class="mb-3 mb-md-6">
+            <v-btn md-large color="success" class="same-width ma-1 mx-md-3" @click="saveOutput">
               <v-icon left>mdi-file-download</v-icon>
               Save result
             </v-btn>
-            <v-btn large color="warning" class="same-width mx-3 my-1" @click="clearOutput">
+            <v-btn md-large color="warning" class="same-width ma-1 mx-md-3" @click="clearOutput">
               <v-icon left>mdi-file-remove</v-icon>
               Clear result
             </v-btn>
@@ -265,7 +265,11 @@ export default {
 
 .same-width {
   width: 100%;
-  max-width: 13rem;
+  max-width: 11rem;
+
+  @media (min-width: 576px) {
+    max-width: 13rem;
+  }
 }
 .pointer-down {
   transition: 0.3s;
