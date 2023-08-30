@@ -19,7 +19,7 @@
       </v-list-item>
       <v-list-item link href="mailto:revert@revert.pl">
         <v-list-item-action>
-          <v-icon>mdi-contact-mail</v-icon>
+          <v-icon>mdi-mail</v-icon>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title>Contact</v-list-item-title>
@@ -27,7 +27,7 @@
       </v-list-item>
       <v-list-item link href="https://github.com/riwert/vue-randomizer" target="_blank" rel="noopener">
         <v-list-item-action>
-          <v-icon>mdi-github-circle</v-icon>
+          <v-icon>mdi-github</v-icon>
         </v-list-item-action>
         <v-list-item-content>
           <v-list-item-title>GitHub</v-list-item-title>
