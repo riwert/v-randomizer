@@ -7,7 +7,7 @@
       >
         <v-col class="text-center">
 
-          <h1>Randomize your input separated by spaces</h1>
+          <h1>Randomize your input</h1>
 
           <div class="my-3 my-md-6">
             <v-menu
@@ -44,7 +44,7 @@
             counter
             solo
             name="input"
-            label="Input"
+            label="Your input to randomize separated by spaces..."
             required
             v-model="randomInput"
             :hint="'Input words count: '+countWords(randomInput)"
@@ -64,7 +64,7 @@
 
             <v-btn x-large color="primary" class="same-width ma-1 mx-md-3" @click="onSubmit">
               <v-icon left>mdi-shuffle-variant</v-icon>
-              Randomize
+              Randomize!
             </v-btn>
           </div>
 
@@ -72,7 +72,7 @@
             counter
             solo
             name="result"
-            label="Result"
+            label="Your randomized result..."
             v-model="randomResult"
             :hint="'Result words count: '+countWords(randomResult)"
           ></v-textarea>

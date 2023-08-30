@@ -65,6 +65,7 @@ body {
 }
 h1 {
   line-height: 1.1;
+  text-transform: uppercase;
 }
 a {
   color: #fff !important;
